@@ -3,7 +3,7 @@ import tensorflow as tf
 import tfops as Z
 import optim
 import numpy as np
-import horovod.tensorflow as hvd
+# import horovod.tensorflow as hvd
 from tensorflow.contrib.framework.python.ops import add_arg_scope
 
 
@@ -74,7 +74,7 @@ def abstract_model_xy(sess, hps, feeds, train_iterator, test_iterator, data_init
         sess.run(tf.global_variables_initializer())
         sess.run(results_init, {feeds['x']: data_init['x'],
                                 feeds['y']: data_init['y']})
-    sess.run(hvd.broadcast_global_variables(0))
+    # sess.run(hvd.broadcast_global_variables(0))
 
     return m
 
